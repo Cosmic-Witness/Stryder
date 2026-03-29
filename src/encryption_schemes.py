@@ -1,26 +1,20 @@
 import base64
 
 def shift_cipher(char, key=3):
-    """
-    Encrypts a character using a shift cipher (Caesar cipher).
-    Shifts the character's ASCII value by the key.
-    """
+    #Encrypts a character using a shift cipher (Caesar cipher).
+    #Shifts the character's ASCII value by the key.
     encrypted_char = chr(ord(char) + key)
     return encrypted_char
 
 def xor_cipher(char, key=0x5A):
-    """
-    Encrypts a character using an XOR cipher.
-    XORs the character's ASCII value with the key.
-    """
+    #Encrypts a character using an XOR cipher.
+    #XORs the character's ASCII value with the key.
     encrypted_char = chr(ord(char) ^ key)
     return encrypted_char
 
 def substitution_cipher(char, key=None):
-    """
-    Encrypts a character using a simple substitution cipher.
-    A fixed substitution map is used.
-    """
+    #Encrypts a character using a simple substitution cipher.
+    #A fixed substitution map is used.
     substitution_map = {
         'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v', 'f': 'u', 'g': 't', 'h': 's',
         'i': 'r', 'j': 'q', 'k': 'p', 'l': 'o', 'm': 'n', 'n': 'm', 'o': 'l', 'p': 'k',
@@ -34,16 +28,12 @@ def substitution_cipher(char, key=None):
     return substitution_map.get(char, char)
 
 def base64_encode(char, key=None):
-    """
-    "Encrypts" a character by Base64 encoding its byte representation.
-    """
+    #Encrypts a character by Base64 encoding its byte representation.
     encoded_bytes = base64.b64encode(char.encode('utf-8'))
     return encoded_bytes.decode('utf-8')
 
 def reverse_bits(char, key=None):
-    """
-    "Encrypts" a character by reversing the bits of its ASCII value.
-    """
+    #Encrypts" a character by reversing the bits of its ASCII value.
     byte = ord(char)
     reversed_byte = int(f'{byte:08b}'[::-1], 2)
     return chr(reversed_byte)
