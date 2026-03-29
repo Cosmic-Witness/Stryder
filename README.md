@@ -1,2 +1,10 @@
 # Stryder
 This project is an experiment to explore the extent to which the vector space of a simple seq2seq autoencoder can hold information about the relationships between data generated from a noisy phenomenon.  Here, a stochastic obfuscation scheme created and an autoencoder was used to predict plaintext from ciphered text.
+
+First, a pool of simple encryption schemes was created. These encryption schemes were the xor_cipher, shift_cipher, substitution_cipher, base64_encode and a reverse_bits cipher. A word is encrypted letter by letter, and for each letter, an encryption scheme is chosen at random. This randomness makes the overall ensemble encryption stronger than any single encryption. Decrypting such a ciphertext would require keeping track of which cypher was used for each letter. Since one letter can have multiple different ciphertext representations because different cyphers may be applied randomly, keeping track of the set of cyphers used per word becomes very difficult.
+
+Regardless, that is not the focus of this experiment. Rather, I attempted to undo the encryption using fewer resources. Neural networks are universal function approximators. They are good at encoding non linear patters in some latent vector space representation and then use this representation to make predictions. The key thing is that structure is reuired in order for these networks to be a tractable solution to this problem. We therefore need to bound the randomness and somehow give it structure.
+
+In Python, this is accomplished using the seed parameter from the "random" library. Given the fact that all computers are deterministic and the best we can hope to achieve is pseudorandomness, this may seem unncessary for there would still be some definite structure for the neural net to learn, even though a seed was not used. However, even this pseudorandomness is random enough to warrant the use of seeds. 
+
+It was a really fun experiment, and I encourage the reader to try it out for themselves. 
