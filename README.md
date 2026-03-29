@@ -7,4 +7,4 @@ Regardless, that is not the focus of this experiment. Rather, I attempted to und
 
 In Python, this is accomplished using the seed parameter from the "random" library. Given the fact that all computers are deterministic and the best we can hope to achieve is pseudorandomness, this may seem unnecessary, for there would still be some definite structure for the neural net to learn, even though a seed was not used. However, even this pseudorandomness is random enough to warrant the use of seeds. 
 
-It was a really fun experiment, and I encourage the reader to try it out for themselves. 
+It was a really fun experiment, and I encourage the reader to try it out for themselves. You will have to set up your own Weights and Biases project and API, though
